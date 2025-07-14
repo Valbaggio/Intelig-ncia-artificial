@@ -31,11 +31,35 @@
         section {
             margin-bottom: 30px;
         }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #0b3d91;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #062e6f;
+        }
         footer {
             text-align: center;
             padding: 15px;
             background-color: #333;
             color: white;
+        }
+        #curiosidade {
+            margin-top: 10px;
+            font-style: italic;
+            color: #333;
         }
     </style>
 </head>
@@ -52,32 +76,65 @@
             <h2>O que é Inteligência Artificial?</h2>
             <p>
                 Inteligência Artificial (IA) é uma área da ciência da computação que busca desenvolver sistemas capazes de simular a inteligência humana. 
-                Isso inclui habilidades como aprendizado, raciocínio, resolução de problemas, percepção e linguagem.
             </p>
         </section>
 
         <section>
             <h2>Aplicações da IA</h2>
             <ul>
-                <li>Assistentes virtuais (como Siri, Alexa e ChatGPT)</li>
-                <li>Reconhecimento facial e de voz</li>
+                <li>Assistentes virtuais</li>
+                <li>Reconhecimento facial</li>
                 <li>Carros autônomos</li>
-                <li>Sistemas de recomendação (Netflix, Spotify)</li>
-                <li>Diagnóstico médico auxiliado por IA</li>
+                <li>Recomendações inteligentes</li>
             </ul>
         </section>
 
         <section>
-            <h2>O Futuro da IA</h2>
-            <p>
-                O futuro da IA promete grandes avanços em diversas áreas, mas também traz desafios éticos, sociais e econômicos. 
-                É essencial que o desenvolvimento da IA seja feito com responsabilidade e foco no bem-estar humano.
-            </p>
+            <h2>Vídeo: Entenda o que é Inteligência Artificial</h2>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/2ePf9rue1Ao" title="O que é IA?" 
+                frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <section>
+            <h2>Curiosidade sobre IA</h2>
+            <button onclick="mostrarCuriosidade()">Mostrar Curiosidade</button>
+            <p id="curiosidade"></p>
+        </section>
+
+        <section>
+            <h2>Deixe sua opinião</h2>
+            <form onsubmit="enviarFormulario(event)">
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <textarea placeholder="Sua mensagem ou pergunta..." rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="mensagem-envio"></p>
         </section>
     </main>
 
     <footer>
         <p>© 2025 - Página sobre Inteligência Artificial</p>
     </footer>
+
+    <script>
+        const curiosidades = [
+            "A primeira IA de sucesso foi criada em 1956, chamada 'Logic Theorist'.",
+            "IA já é usada para prever diagnósticos médicos com precisão comparável à de especialistas.",
+            "Algoritmos de IA podem compor músicas, pintar quadros e escrever poesias.",
+            "Carros autônomos usam IA para tomar decisões em tempo real no trânsito.",
+            "Chatbots como o ChatGPT usam redes neurais com bilhões de parâmetros!"
+        ];
+
+        function mostrarCuriosidade() {
+            const aleatoria = curiosidades[Math.floor(Math.random() * curiosidades.length)];
+            document.getElementById("curiosidade").textContent = aleatoria;
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            document.getElementById("mensagem-envio").textContent = "Obrigado pela sua mensagem! 😊";
+        }
+    </script>
 </body>
 </html>
